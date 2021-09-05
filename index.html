@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="styles.css">
+    <title>Bungoh Development</title>
+
+    <script>
+        var messageExists = false;
+        function getDiscord() {
+            const disc = document.createElement('textarea');
+            disc.value = "Bungoh#0001";
+            document.body.appendChild(disc);
+            disc.select();
+            document.execCommand('copy');
+            document.body.removeChild(disc);
+
+            if (!messageExists) {
+                messageExists = true;
+            
+                var messageDiv = document.createElement('div');
+                messageDiv.setAttribute("class", "discord-alert");
+                const message = document.createTextNode("Discord username has been copied!");
+                messageDiv.appendChild(message);
+                var lastDiv = document.querySelector("#links");
+                lastDiv.parentNode.insertBefore(messageDiv, lastDiv.nextSibling);
+
+                setTimeout(() => {
+                    messageExists = false;
+                    messageDiv.remove()
+                }, 2000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>Bungoh <span style="color: #bbb">// Developer</span></h1>
+        </div>
+        <div id="links">
+            <a href="https://www.github.com/Bungoh" target="_blank">GitHub</a>
+            &nbsp;&nbsp;&nbsp;
+            <a id="discord" onclick="getDiscord()">Discord</a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/dylan-van-bunnik/" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+</body>
+</html>
